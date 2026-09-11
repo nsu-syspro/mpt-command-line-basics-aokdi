@@ -1,5 +1,4 @@
 export temp_f=$(mktemp)
-find . -type f -name "*.txt" -printf "%f\n" > temp_f
-sort $temp_f
+basename -a $(find . -type f -name "*.txt") > temp_f
+sort temp_f
 rm $temp_f
-rm temp_f
