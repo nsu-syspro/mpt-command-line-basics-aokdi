@@ -1,4 +1,5 @@
-export temp_dir="/tmp/tmp.jjCgVkaXh8"
-tar -xf archive-part1.tar --directory=/tmp/tmp.RHmCBCwK7X
-unzip archive-part2.zip -d /tmp/tmp.RHmCBCwK7X
-tar -czf archive-combined.tar.gz /tmp/tmp.RHmCBCwK7X
+export temp_dir=$(mktemp -d)
+tar -xf data/archive-part1.tar --directory=$temp_dir
+unzip data/archive-part2.zip -d $temp_dir
+tar -czf data/archive-combined.tar.gz --directory=$temp_dir .
+rm -r $temp_dir
